@@ -8,11 +8,12 @@ namespace Scheduler.Tests
     public class TTCSchedulerTests
     {
         [TestMethod]
-        [ExpectedException(typeof(NotImplementedException))]
-        public void CatchNextTrainThrows()
+        public void ValidateStation()
         {
             TTCScheduler scheduler = new TTCScheduler();
-            scheduler.CatchNextTrain("unknonw", DateTime.Now);
+            string stationName = "Finch";
+            bool result = scheduler.ValidateStation(stationName);
+            Assert.IsTrue(result);
         }
     }
 }
