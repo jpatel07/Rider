@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,13 @@ namespace Scheduler
     public class TTCScheduler
     {
         List<Station> stations = new List<Station>();
-        string fileName = "";
+        string fileName = "stationsmasterdata.csv";
+        string baseDir = AppDomain.CurrentDomain.BaseDirectory;
 
         public TTCScheduler()
         {
-            stations = Utils.LoadStations(fileName);
+            string filePath = Path.Combine(baseDir, fileName);
+            stations = Utils.LoadStations(filePath);
         }
         public void CatchNextTrain(string stationName, DateTime currenttime)
         {
