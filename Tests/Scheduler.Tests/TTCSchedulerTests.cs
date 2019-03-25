@@ -15,5 +15,13 @@ namespace Scheduler.Tests
             bool result = scheduler.ValidateStation(stationName);
             Assert.IsTrue(result);
         }
+        [TestMethod]
+        public void ValidateIgnoreCaseStation()
+        {
+            TTCScheduler scheduler = new TTCScheduler();
+            string stationName = "DuPont";
+            bool result = scheduler.ValidateStation(stationName);
+            Assert.IsTrue(result);
+        }
     }
 }

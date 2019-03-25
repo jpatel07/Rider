@@ -26,7 +26,7 @@ namespace Scheduler
         public bool ValidateStation(string stationName)
         {
             var station = stations.FirstOrDefault(s => (!String.IsNullOrEmpty(s.Name)
-                                && s.Name.Equals(stationName)));
+                                && s.Name.Equals(stationName, StringComparison.CurrentCultureIgnoreCase)));
             if (station == null)
                 return false;
             else
