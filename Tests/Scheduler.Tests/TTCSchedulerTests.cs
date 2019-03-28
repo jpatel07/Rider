@@ -15,6 +15,7 @@ namespace Scheduler.Tests
             bool result = scheduler.ValidateStation(stationName);
             Assert.IsTrue(result);
         }
+
         [TestMethod]
         public void ValidateIgnoreCaseStation()
         {
@@ -22,6 +23,17 @@ namespace Scheduler.Tests
             string stationName = "DuPont";
             bool result = scheduler.ValidateStation(stationName);
             Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ValidateStationAndDirection()
+        {
+            TTCScheduler scheduler = new TTCScheduler();
+            string stationName = "Dundas";
+            string direction = "North";
+            bool result = scheduler.ValidateStationDirection(stationName, direction);
+            Assert.IsTrue(result);
+
         }
     }
 }

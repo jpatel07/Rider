@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DirectionToLine.cs" />
     <Compile Include="Station.cs" />
     <Compile Include="TTCScheduler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
