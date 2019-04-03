@@ -35,5 +35,18 @@ namespace Scheduler.Tests
             Assert.IsTrue(result);
 
         }
+
+        [TestMethod]
+        public void GetNextTrainForDundasNorth()
+        {
+            TTCScheduler scheduler = new TTCScheduler();
+            string stationName = "Dundas";
+            string direction = "North";
+            int currentHour = 11;
+            int currenMinute = 25;
+            TimeSpan expectedArrivalTime = new TimeSpan(11, 30, 00);
+            TimeSpan resultArrivalTime = scheduler.NextTrainArrivalTime(stationName, direction, currentHour, currenMinute);
+            Assert.AreEqual(expectedArrivalTime, resultArrivalTime);
+        }
     }
 }

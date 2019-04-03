@@ -71,5 +71,18 @@ namespace Scheduler
 
             return false;
         }
+
+        public TimeSpan NextTrainArrivalTime(string stationName, string direction, int currentHour, int currenMinute)
+        {
+           if(ValidateStationDirection(stationName, direction))
+            {
+                return (Utils.GetNextTrainArrivalTime(currentHour, currenMinute));
+            }
+            else
+            {
+                //todo return proper error
+                return new TimeSpan(0, 0, 0);
+            }
+        }
     }
 }

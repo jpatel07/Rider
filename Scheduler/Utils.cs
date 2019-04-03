@@ -39,6 +39,7 @@ namespace Scheduler
             }
         }
 
+        //For simply city next time arrive at next quarte of the hour
         public static TimeSpan GetNextTrainArrivalTime(int hour, int minute)
         {
             if (!ValidateHour(hour))
@@ -51,8 +52,7 @@ namespace Scheduler
                 throw new ArgumentException(nameof(hour));
             }
 
-            throw new NotImplementedException();
-            // new TimeSpan(hour, minute, Seconds);
+            return (new TimeSpan(hour, minute, Seconds).RoundTo(15));
         }
 
         private static bool ValidateMinutes(int minute)
