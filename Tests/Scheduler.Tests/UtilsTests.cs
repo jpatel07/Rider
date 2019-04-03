@@ -20,7 +20,7 @@ namespace Scheduler.Tests
             // TODO: Add constructor logic here
             //
         }
-    
+
         private TestContext testContextInstance;
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Scheduler.Tests
 
             var stations = Utils.LoadStations(fileName);
             Assert.IsNotNull(stations);
-           
+
         }
 
         [TestMethod]
@@ -88,6 +88,26 @@ namespace Scheduler.Tests
             string filePath = Path.Combine(baseDir, fileName);
             var stations = Utils.LoadStations(filePath);
             Assert.AreEqual(75, stations.Count);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void InvalidHourTimeSpanThrows()
+        {
+            int hour = 81;
+            int minute = 0;
+            TimeSpan nextTimeSpan = Utils.GetNextTrainArrivalTime(hour, minute);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void InvalidMintuesTimeSpanThrows()
+        {
+            int hour = 12;
+            int minute = 61;
+            TimeSpan nextTimeSpan = Utils.GetNextTrainArrivalTime(hour, minute);
+
         }
     }
 }

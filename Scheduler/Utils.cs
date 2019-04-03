@@ -8,6 +8,7 @@ namespace Scheduler
 {
     public class Utils
     {
+        readonly static int Seconds = 0;
         public static List<Station> LoadStations(string filePath)
         {
             if (String.IsNullOrWhiteSpace(filePath))
@@ -36,6 +37,39 @@ namespace Scheduler
 
                 throw new Exception($"Failed to load {csvFilePath} : {ex.Message}");
             }
+        }
+
+        public static TimeSpan GetNextTrainArrivalTime(int hour, int minute)
+        {
+            if (!ValidateHour(hour))
+            {
+                throw new ArgumentException(nameof(hour));
+            }
+
+            if (!ValidateMinutes(minute))
+            {
+                throw new ArgumentException(nameof(hour));
+            }
+
+            throw new NotImplementedException();
+            // new TimeSpan(hour, minute, Seconds);
+        }
+
+        private static bool ValidateMinutes(int minute)
+        {
+            if (minute < 0 || minute > 59)
+                return false;
+
+            return true;
+        }
+
+        private static bool ValidateHour(int hour)
+        {
+            if (hour < 0 || hour > 24)
+                return false;
+
+            return true;
+
         }
     }
 }
