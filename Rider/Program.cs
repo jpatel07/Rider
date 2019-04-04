@@ -23,9 +23,13 @@ namespace Rider
                     Console.WriteLine("------------------------------------------------------------");
                     Console.WriteLine("Enter a Station:");
                     stationName = Console.ReadLine();
-                    if (scheduler.ValidateStation(stationName))
+                    if (!scheduler.ValidateStation(stationName))
                     {
                         Console.WriteLine($"Invalid Station {stationName}");
+                        Console.WriteLine("------------------------------------------------------------");
+                        Console.WriteLine();
+                        continue;
+
                     }
 
                     Console.WriteLine("Enter current hour:");
