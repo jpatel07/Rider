@@ -16,13 +16,17 @@ namespace Rider
             int hour;
             int minute;
             TTCScheduler scheduler = new TTCScheduler();
-            while (Console.ReadKey().KeyChar != 'q')
+            do
             {
                 try
                 {
                     Console.WriteLine("------------------------------------------------------------");
-                    Console.WriteLine("Enter a Stationname:");
+                    Console.WriteLine("Enter a Station:");
                     stationName = Console.ReadLine();
+                    if (scheduler.ValidateStation(stationName))
+                    {
+                        Console.WriteLine($"Invalid Station {stationName}");
+                    }
 
                     Console.WriteLine("Enter current hour:");
                     int.TryParse(Console.ReadLine(), out hour);
@@ -44,7 +48,6 @@ namespace Rider
                     {
                         Console.WriteLine("Invalid Input");
                     }
-                    Console.WriteLine("------------------------------------------------------------");
                 }
                 catch (Exception ex)
                 {
@@ -53,7 +56,12 @@ namespace Rider
                     Console.WriteLine("------------------------------------------------------------");
                 }
 
-            }
+                Console.WriteLine("Enter 'q' to quit  or Enter to continue");
+                Console.WriteLine("------------------------------------------------------------");
+
+
+            } while (Console.ReadKey().KeyChar != 'q');
+
         }
 
     }

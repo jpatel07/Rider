@@ -6,3 +6,5 @@ Line1 = North & South
 Line2 = East & West
 Line3 = East & West
 Line4 = East & West
+
+For simplycity the next train time will be round of to next quarter
