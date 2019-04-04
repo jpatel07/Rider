@@ -46,7 +46,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Sources\stationsmasterdata.csv">
+      <Link>stationsmasterdata.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Scheduler\Scheduler.csproj">
+      <Project>{364a25df-cfae-48f6-9be9-2203107dfd48}</Project>
+      <Name>Scheduler</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

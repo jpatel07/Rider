@@ -18,7 +18,7 @@ namespace Scheduler
 
             if (!File.Exists(filePath))
             {
-                throw new FileNotFoundException(nameof(filePath));
+                throw new FileNotFoundException(filePath);
             }
 
             return LoadCSVFile(filePath);
