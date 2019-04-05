@@ -20,7 +20,7 @@ namespace Scheduler.Tests
         public void ValidateIgnoreCaseStation()
         {
             TTCScheduler scheduler = new TTCScheduler();
-            string stationName = "DuPont";
+            string stationName = "Sheppard-YONGE";
             bool result = scheduler.ValidateStation(stationName);
             Assert.IsTrue(result);
         }
